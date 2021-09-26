@@ -1,0 +1,51 @@
+.ProgressTracker{
+    height:3px;
+    width:100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 50px 0;
+}
+
+.innerProgressTracker{
+    /* height:300px;  */
+    width: 500px;
+    display: flex;
+    align-items: center;
+    position: relative;
+}
+
+.MovingProgressTrackerBar{
+    height:5px;
+    background-color:rgb(228, 62, 95);
+    position: absolute;
+    z-index: 1;
+    transition: width 0.2s;
+}
+
+.ProgressTrackerBar{
+    height:5px;
+    width:500px;
+    background-color: #e7e7e7;
+    position: absolute;
+}
+
+.circle{
+    height: 15px;
+    width:  15px;
+    border-radius: 50%;
+    background-color: rgb(228, 62, 95);
+    position: absolute;
+}
+
+.firstCircle{
+    left: 0;
+}
+
+.secondCircle{
+    left:49%;
+}
+
+.thirdCircle{
+    left:97%
+}

@@ -1,0 +1,27 @@
+.commentSection{
+    display: flex;
+    margin-bottom: 12px;
+    background-color: '#e7e7e7';
+    padding: '7px 14px';
+    border-radius: '7px'
+}
+
+.comment__videoList{
+    background-color: #e7e7e7;
+    padding: 10px;
+    margin-top: 10px;
+    border-radius: 10px;
+}
+
+.comment_addComment{
+    border: none;
+    padding:10px 7px;
+    font-size: 16px;
+    margin-top: 20px;
+    width: 98%;
+    border-bottom: 1px solid black;
+}
+
+.comment_addComment:focus{
+    outline:none
+}

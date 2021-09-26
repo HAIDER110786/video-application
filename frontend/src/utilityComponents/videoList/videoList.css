@@ -1,0 +1,32 @@
+.Home__videoList{
+    width:35%;
+}
+
+.home__videoList{
+    display: flex;
+    margin-bottom: 20px;
+    width: 100%;
+}
+
+.videoList__video {  
+    width: 50%;
+}
+
+.videoList__video video{  
+    display: block;
+    width: 100%;
+}
+
+.videoList__videoDetails{
+    background-color: #e7e7e7;
+    padding: 0 2.5%;
+    font-size: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    width: 50%;
+}
+
+.videoList__videoDetails p,.videoList__videoDetails h3{
+    margin: 0;
+}

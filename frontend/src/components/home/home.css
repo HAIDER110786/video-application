@@ -1,0 +1,43 @@
+.home{
+    display: flex;
+    width: 90%;
+    justify-content: space-between;
+    padding: 5%;
+}
+
+.home__currentVideo{
+    width:60%;
+    height: fit-content;
+}
+
+.home__currentVideo__postComment{
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+}
+
+.home__currentVideo__postComment input{
+    width: 85%;
+}
+
+.home__currentVideo__postComment button{
+    width: 10%;
+    height: 30px;
+    border-radius: 14px;
+    border:none;
+    color: white;
+    background-color: crimson;
+    user-select: none;
+}
+
+.home__currentVideo__postComment button:active{
+    color: crimson;
+    background-color: white;
+    border: 2px solid crimson;
+    font-weight: bold;
+    user-select: none;
+}
+
+.Home__videoList{
+    width: 35%;
+}

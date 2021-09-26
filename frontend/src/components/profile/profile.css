@@ -1,0 +1,77 @@
+.Profile__UploadSection{
+    display: flex;
+    justify-content: center;
+    font-family: sans-serif;
+    height: 55vh;
+}
+
+.uploadDiv{
+    height: 100%;
+    background-color: #e7e7e7;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    border-radius: 15px;
+    transition: width 0.2s;
+    padding: 30px;
+}
+
+.uploadDiv h3, .uploadDiv h5{
+    margin: 0;
+}
+
+.upload_img {
+    border-radius: 5px;
+    padding: 10px 30px;
+    box-shadow: 1px 1px 1px #000;
+    color: white;
+    background-color: crimson;
+}
+
+.upload_img:active {
+    margin: 1px 1px 0;
+    box-shadow: -1px -1px 1px #000;
+}
+
+.videoDetailForms{
+    background-color: rgb(81, 197, 197);
+    height: 0px;
+    display: flex;
+    flex-direction: column;
+    background-color: #e7e7e7;
+    border-radius: 15px;
+    align-items: left;
+    justify-content: space-around;
+    height: 100%;
+    transition: width 0.2s;
+    padding: 30px;
+}
+
+.videoDetailForms textarea{
+    padding: 7px;
+    font-size: large;
+}
+
+.videoDetailForms input{
+    padding: 7px;
+    font-size: medium;
+}
+
+.videoDetailForms textarea:focus{
+    outline-color: rgb(230, 87, 115);
+}
+
+.videoDetailForms input:focus{
+    outline-color: rgb(230, 87, 115);
+}
+
+.videoDetailForms .label{
+    border-radius: 5px;
+    padding: 10px 30px;
+    box-shadow: 1px 1px 1px #000;
+    color: white;
+    background-color: crimson;
+    width: fit-content;
+    align-self: flex-end;
+}
