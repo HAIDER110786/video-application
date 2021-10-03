@@ -7,10 +7,12 @@ import dotenv from 'dotenv';
 import { readdirSync } from 'fs';
 import redis from 'redis';
 import { v4 as uuid } from 'uuid';
+import moment from 'moment';
 const genThumbnail = require('simple-thumbnail');
 
 const app: Application = express();
 dotenv.config();
+app.use(express.static('uploads'));
 app.use(express.static('thumbnails'));
 app.use(cors());
 app.use(fileUpload());
@@ -23,7 +25,7 @@ const Redis_Client = redis.createClient(Number(Redis_Client_Port));
 
 //testing api
 app.get('/', (req, res) => {
-    return res.send("here is your dummy data")
+    return res.send('this is the test URL');
 })
 
 //upload a new video
@@ -39,10 +41,11 @@ app.post('/uploads', async (req: Request, res: Response) => {
 
     const videoData = {
         id: uuid(),
+        name: videoName,
         title: req.body.title,
         description: req.body.description,
-        name: videoName,
-        posted_time: 'may 19, 2014',
+        posted_time: moment().format("HH:mm:ss"),
+        posted_date: moment().format("MMMM DD YYYY"),
         likes: 0,
         dislikes: 0,
         comments: 0,

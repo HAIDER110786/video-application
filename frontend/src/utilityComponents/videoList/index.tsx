@@ -1,12 +1,17 @@
 import React from 'react'
 import './videoList.css'
 
+/**try to put Date type in posted_time and posted_date */
+
 interface Props {
     video: {
         id: number,
         name: string,
+        title: string,
+        description: string,
         url: string,
         posted_time: string,
+        posted_date: string,
         likes: number,
         dislikes: number,
         comments: number,

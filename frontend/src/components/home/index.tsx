@@ -1,8 +1,8 @@
 import React from 'react'
 import VideoList from '../../utilityComponents/videoList';
 import CommentSection from '../../utilityComponents/commentSection';
-import './home.css'
 import { connect } from 'react-redux';
+import './home.css'
 
 const Home: React.FC<{}> = () => {
 
@@ -44,129 +44,69 @@ const Home: React.FC<{}> = () => {
         },
     ]
 
+    // console.log(`localhost:5000/1632688727703_SARW7125.avi`);
+    const videoLink = `http://localhost:5000/1632688727703_SARW7125.avi`;
+
+    /*aagaya chal kr URL kay liyay localhost kay saath name ki property ko concat
+    krwana ho ga*/
+
     const videoList = [
         {
             id: 1,
             name: 'video1',
+            title: 'video title',
+            description: 'video description',
             url: 'https://s3.amazonaws.com/codecademy-content/courses/React/react_video-fast.mp4',
-            posted_time: 'may 19, 2014',
+            posted_time: '01:13:49',
+            posted_date: 'may 19, 2014',
             likes: 200,
             dislikes: 500,
             comments: 12,
         },
         {
             id: 2,
-            name: 'video2',
+            name: 'video1',
+            title: 'video title',
+            description: 'video description',
             url: 'https://s3.amazonaws.com/codecademy-content/courses/React/react_video-fast.mp4',
-            posted_time: 'may 19, 2014',
+            posted_time: '01:13:49',
+            posted_date: 'may 19, 2014',
             likes: 200,
             dislikes: 500,
             comments: 12,
         },
         {
             id: 3,
-            name: 'video2',
+            name: 'video1',
+            title: 'video title',
+            description: 'video description',
             url: 'https://s3.amazonaws.com/codecademy-content/courses/React/react_video-fast.mp4',
-            posted_time: 'may 19, 2014',
+            posted_time: '01:13:49',
+            posted_date: 'may 19, 2014',
             likes: 200,
             dislikes: 500,
             comments: 12,
         },
         {
             id: 4,
-            name: 'video2',
+            name: 'video1',
+            title: 'video title',
+            description: 'video description',
             url: 'https://s3.amazonaws.com/codecademy-content/courses/React/react_video-fast.mp4',
-            posted_time: 'may 19, 2014',
+            posted_time: '01:13:49',
+            posted_date: 'may 19, 2014',
             likes: 200,
             dislikes: 500,
             comments: 12,
         },
         {
             id: 5,
-            name: 'video2',
+            name: 'video1',
+            title: 'video title',
+            description: 'video description',
             url: 'https://s3.amazonaws.com/codecademy-content/courses/React/react_video-fast.mp4',
-            posted_time: 'may 19, 2014',
-            likes: 200,
-            dislikes: 500,
-            comments: 12,
-        },
-        {
-            id: 6,
-            name: 'video2',
-            url: 'https://s3.amazonaws.com/codecademy-content/courses/React/react_video-fast.mp4',
-            posted_time: 'may 19, 2014',
-            likes: 200,
-            dislikes: 500,
-            comments: 12,
-        },
-        {
-            id: 7,
-            name: 'video2',
-            url: 'https://s3.amazonaws.com/codecademy-content/courses/React/react_video-fast.mp4',
-            posted_time: 'may 19, 2014',
-            likes: 200,
-            dislikes: 500,
-            comments: 12,
-        },
-        {
-            id: 8,
-            name: 'video2',
-            url: 'https://s3.amazonaws.com/codecademy-content/courses/React/react_video-fast.mp4',
-            posted_time: 'may 19, 2014',
-            likes: 200,
-            dislikes: 500,
-            comments: 12,
-        },
-        {
-            id: 9,
-            name: 'video2',
-            url: 'https://s3.amazonaws.com/codecademy-content/courses/React/react_video-fast.mp4',
-            posted_time: 'may 19, 2014',
-            likes: 200,
-            dislikes: 500,
-            comments: 12,
-        },
-        {
-            id: 10,
-            name: 'video2',
-            url: 'https://s3.amazonaws.com/codecademy-content/courses/React/react_video-fast.mp4',
-            posted_time: 'may 19, 2014',
-            likes: 200,
-            dislikes: 500,
-            comments: 12,
-        },
-        {
-            id: 11,
-            name: 'video2',
-            url: 'https://s3.amazonaws.com/codecademy-content/courses/React/react_video-fast.mp4',
-            posted_time: 'may 19, 2014',
-            likes: 200,
-            dislikes: 500,
-            comments: 12,
-        },
-        {
-            id: 12,
-            name: 'video2',
-            url: 'https://s3.amazonaws.com/codecademy-content/courses/React/react_video-fast.mp4',
-            posted_time: 'may 19, 2014',
-            likes: 200,
-            dislikes: 500,
-            comments: 12,
-        },
-        {
-            id: 13,
-            name: 'video2',
-            url: 'https://s3.amazonaws.com/codecademy-content/courses/React/react_video-fast.mp4',
-            posted_time: 'may 19, 2014',
-            likes: 200,
-            dislikes: 500,
-            comments: 12,
-        },
-        {
-            id: 14,
-            name: 'video2',
-            url: 'https://s3.amazonaws.com/codecademy-content/courses/React/react_video-fast.mp4',
-            posted_time: 'may 19, 2014',
+            posted_time: '01:13:49',
+            posted_date: 'may 19, 2014',
             likes: 200,
             dislikes: 500,
             comments: 12,
@@ -176,7 +116,8 @@ const Home: React.FC<{}> = () => {
     return (
         <div className="home">
             <div className="home__currentVideo">
-                <video src='https://s3.amazonaws.com/codecademy-content/courses/React/react_video-fast.mp4' controls width='100%' />
+                {/* <video src='https://s3.amazonaws.com/codecademy-content/courses/React/react_video-fast.mp4' controls width='100%' /> */}
+                <video src={videoLink} controls width='100%' />
                 {
                     commentList.map((comment: {
                         id: number,
@@ -194,11 +135,14 @@ const Home: React.FC<{}> = () => {
                     videoList.map((video: {
                         id: number,
                         name: string,
+                        title: string,
+                        description: string,
                         url: string,
                         posted_time: string,
+                        posted_date: string,
                         likes: number,
                         dislikes: number,
-                        comments: number
+                        comments: number,
                     }) => <VideoList video={video} key={video.id} />)
                 }
             </div>
