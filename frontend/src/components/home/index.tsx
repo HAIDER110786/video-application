@@ -44,12 +44,6 @@ const Home: React.FC<{}> = () => {
         },
     ]
 
-    // console.log(`localhost:5000/1632688727703_SARW7125.avi`);
-    const videoLink = `http://localhost:5000/1632688727703_SARW7125.avi`;
-
-    /*aagaya chal kr URL kay liyay localhost kay saath name ki property ko concat
-    krwana ho ga*/
-
     const videoList = [
         {
             id: 1,
@@ -116,8 +110,9 @@ const Home: React.FC<{}> = () => {
     return (
         <div className="home">
             <div className="home__currentVideo">
-                {/* <video src='https://s3.amazonaws.com/codecademy-content/courses/React/react_video-fast.mp4' controls width='100%' /> */}
-                <video src={videoLink} controls width='100%' />
+                <video height={300} controls>
+                    <source src="http://localhost:5000/videos" type='video/mp4' />
+                </video>
                 {
                     commentList.map((comment: {
                         id: number,

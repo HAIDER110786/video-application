@@ -4,7 +4,7 @@ import cors from 'cors';
 import path from 'path';
 import { UploadedFile } from 'express-fileupload';
 import dotenv from 'dotenv';
-import { readdirSync } from 'fs';
+import fs, { readdirSync } from 'fs';
 import redis from 'redis';
 import { v4 as uuid } from 'uuid';
 import moment from 'moment';
@@ -25,8 +25,23 @@ const Redis_Client = redis.createClient(Number(Redis_Client_Port));
 
 //testing api
 app.get('/', (req, res) => {
+
+
+
     return res.send('this is the test URL');
 })
+
+interface IVideo {
+    id: string,
+    name: string,
+    title: string,
+    description: string,
+    posted_time: string,
+    posted_date: string,
+    likes: number,
+    dislikes: number,
+    comments: number,
+}
 
 //upload a new video
 app.post('/uploads', async (req: Request, res: Response) => {
@@ -39,7 +54,7 @@ app.post('/uploads', async (req: Request, res: Response) => {
 
     const videoName: string = `${Date.now()}_${file.name}`;
 
-    const videoData = {
+    const videoData: IVideo = {
         id: uuid(),
         name: videoName,
         title: req.body.title,
@@ -92,6 +107,53 @@ app.get('/videos', (req, res) => {
 app.get('/videos/:name', (req: Request, res: Response) => {
 
     const videoName: string = req.params.name;
+
+    //range/starting chunk of the video
+    const chunk_range: string = req.headers.range!;
+
+    //return if the range is not provided
+    if (!chunk_range) {
+        return res.status(400).send("please provide the range")
+    }
+
+    const video_path: string = path.join(__dirname, "../uploads/hummingbird.mp4");
+
+    const video_stats: fs.Stats = fs.statSync(video_path);
+
+    //get the video size
+    const video_size: number = video_stats.size;
+
+    //manually setting the chunk size
+    const CHUNK_SIZE = 10 ** 5; // 1MB
+
+    //start of the chunk
+    const start = Number(chunk_range.replace(/\D/g, ""));
+
+    //end of the chunk
+    const end = Math.min(start + CHUNK_SIZE, video_size - 1);
+
+    //size of the current specific chunk
+    const contentLength = end - start + 1;
+
+    //setting the headers
+    const headers = {
+        "Content-Range": `bytes ${start}-${end}/${video_size}`,
+        "Accept-Ranges": "bytes",
+        "Content-Length": contentLength,
+        "Content-Type": "video/mp4",
+    };
+
+    // HTTP Status 206 for Partial Content
+    res.writeHead(206, headers);
+
+    // create video read stream for this particular chunk
+    const videoStream = fs.createReadStream(video_path, { start, end });
+
+    // Stream the video chunk to the client
+    videoStream.pipe(res);
+
+
+
 
 
     Redis_Client.get(videoName, (err, data) => {
